@@ -1,0 +1,37 @@
+.#{$prefix}boxscroller {
+    display: flex;
+    overflow: hidden;
+
+    .#{$prefix}boxscroller-body {
+        display: flex;
+        overflow: hidden;
+        align-items: flex-start;
+        flex: 1 1 auto;
+
+        > .#{$prefix}body-el {
+            flex: none;
+            min-width: 100%;
+        }
+    }
+
+    &.#{$prefix}horizontal {
+        flex-direction: row;
+
+        .#{$prefix}boxscroller-body {
+            // hide the scrollbar
+            padding-bottom: 100px;
+            margin-bottom: -100px;
+            box-sizing: content-box;
+        }
+    }
+
+    &.#{$prefix}vertical {
+        flex-direction: column;
+
+        .#{$prefix}boxscroller-body {
+            // hide the scrollbar
+            padding-right: 100px;
+            margin-right: -100px;
+        }
+    }
+}
