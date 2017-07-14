@@ -12,9 +12,41 @@ Ext.define('Yo.view.main.Main', {
         type: 'main'
     },
 
-    bind: 'users',
+    bind: {
+        store: '{users}'
+    },
+    inline: {wrap: false},
+    cls: 'cs-absolute-pos',
+    scrollable: false,
 
-    itemTpl: '<div>{name} is {age} years old' +
-    '<img style="left:{x;top:{y}}" src="{url}">' +
-    '</div>'
+
+    itemTpl: '<div>{name} is {age} years old</div>' +
+    '<img style="width:{width}px" src="{url}">',
+
+    privates: {
+        createDataItem: function (index, record) {
+            var me = this,
+                store = me.store,
+                data = me.gatherData(record, index),
+                markDirty = me.getMarkDirty(),
+                dom, itemEl;
+
+            itemEl = Ext.Element.create(me.getItemElementConfig(index, data, store));
+            dom = itemEl.dom;
+
+            if (markDirty) {
+                itemEl.addCls(me.markDirtyCls);
+            }
+
+            dom.setAttribute('data-viewid', me.id);
+            dom.setAttribute('data-recordid', record.internalId);
+            dom.setAttribute('data-recordindex', index);
+
+            //add absolute positioning to items
+            dom.style.top = record.data.y + 'px';
+            dom.style.left = record.data.x + 'px';
+            return itemEl;
+        }
+    }
+
 });

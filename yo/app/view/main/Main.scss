@@ -1,0 +1,11 @@
+.cs-absolute-pos {
+  .x-dataview-item {
+    margin: 20px;
+    position: absolute;
+    border: 1px solid transparent;
+  }
+
+  .x-selected {
+    border: 1px dashed #ccc;
+  }
+}

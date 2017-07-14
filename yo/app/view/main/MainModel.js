@@ -9,14 +9,17 @@ Ext.define('Yo.view.main.MainModel', {
     data: {
         name: 'Yo'
     },
+
     stores: {
         users: {
-            fields: ['name', 'age'],
+            autoLoad: true,
+
+            fields: ['name', 'age', 'url', 'x', 'y', 'width'],
             data: [
-                {name: 'Bob', age: 34, url: 'images/bob.jpg', x: 0, y: 0},
-                {name: 'Larry', age:45, url: 'images/ray.jpg', x: 300, y: 0},
-                {name: 'Ketty', age: 18, url: 'images/ketty.jpg', x: 0, y: 300},
-                {name: 'Baiba', age: 32, url: 'images/baiba.jpg', x: 300, y: 300}
+                {name: 'Bob', age: 34, url: 'resources/images/bob.jpg', x: 0, y: 0, width: 280},
+                {name: 'Larry', age: 45, url: 'resources/images/larry.jpg', x: 300, y: 0, width: 280},
+                {name: 'Ketty', age: 18, url: 'resources/images/ketty.jpg', x: 0, y: 300, width: 280},
+                {name: 'Baiba', age: 32, url: 'resources/images/baiba.jpg', x: 300, y: 300, width: 280}
             ]
         }
     }
