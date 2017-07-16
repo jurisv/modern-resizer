@@ -1,11 +1,39 @@
-.cs-absolute-pos {
-  .x-dataview-item {
+.cs-positioned-dataview {
+  .x-component.cs-whiteboard-item {
     margin: 20px;
     position: absolute;
-    border: 1px solid transparent;
+    border: 1px solid #8dab9e;
+
+    &.x-selected {
+      border: 1px dashed #ccc;
+
+      // Resizer section
+      .x-panelresizer {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #abc;
+      }
+
+
+      .x-southeast{
+        margin: -10px -10px -10px 0px;
+      }
+
+      .x-northwest{
+        margin: -10px 0 0 -10px;
+      }
+
+      .x-northeast{
+        margin: -10px -10px 0 0px;
+      }
+
+      .x-southwest{
+        margin: -10px 0 -10px -10px;
+      }
+    }
   }
 
-  .x-selected {
-    border: 1px dashed #ccc;
-  }
+
+
 }

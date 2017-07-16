@@ -7,13 +7,31 @@ Ext.define('Yo.view.main.MainController', {
 
     alias: 'controller.main',
 
-    onItemSelected: function (sender, record) {
-        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
-    },
-
     onConfirm: function (choice) {
         if (choice === 'yes') {
             //
         }
+    },
+
+    onItemSelect: function (view, record) {
+        if (!record) {
+            return;
+        }
+
+        var item = view.mapToItem(record);
+        item.setResizable({
+            edges: 'ne se sw nw',
+            dynamic: true
+        });
+    },
+
+    onItemDeselect: function (view, record) {
+        if (!record) {
+            return;
+        }
+
+        var item = view.mapToItem(record[0]);
+
+        item.setResizable(false);
     }
 });
